@@ -1,0 +1,130 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- Park_Enguiry:
+    use_entities: true
+- General_Enguiry:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- Dam_Enguiry:
+    use_entities: true
+- Museum_Enguiry:
+    use_entities: true
+- Village_Enguiry:
+    use_entities: true
+- Garden_Enguiry:
+    use_entities: true
+- Soudah_Enguiry:
+    use_entities: true
+entities: []
+slots: {}
+responses:
+  utter_greet:
+  - text: وعليكم السلام ورحمة الله وبركاته
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_General_Enguiry:
+  - text: |
+      يوجد العديد من الوجهات السياحية في المنطقة
+      - منتزهات
+      - حدائق
+      - قرى تراثية
+      - متاحف
+      - سدود
+
+      اي منها اللي تحب تعرف عنها؟
+  utter_Park_Enguiry:
+  - text: |
+      هذه قائمة بأشهر المتنزهات في المنطقة:
+      - متنزه السودة
+      - منتزه السحاب
+      - متنزه الأمير سلطان
+      - متنزه الحبله
+      - متنزه الفرعاء
+      - متنزه دلغان
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Garden_Enguiry:
+  - text: |
+      هذه قائمة بأشهر الحدائق:
+      - حديقة المطار
+      - حديقة المشهد
+      - حديقة أبو خيال
+      - حديقه المحالة
+      - حديقة السد
+      - حديقة الاندلس
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Village_Enguiry:
+  - text: |
+      هذه قائمة بأشهر القرى التراثية في المنطقة:
+      - قرية رجال المع
+      - قرية طبب
+      - قرية العسابلة (النماص)
+      - قرية بن حمسان التراثية
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Museum_Enguiry:
+  - text: |
+      هذه قائمة بأشهر المتاحف في المنطقة:
+      - متحف عسير الإقليمي
+      - متحف الرقدي
+      - متحف ال قزع التراثي
+      - متحف الحجل
+      - متحف العرش
+      - متحف اليجي
+      - متحف سبت العلايا
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Dam_Enguiry:
+  - text: |
+      هذه قائمة بأشهر السدود في المنطقة:
+      - سد أبها
+      - سد عتود
+      - سد ضبوعي
+      - سد ترجس
+      - سد تندحة
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Soudah_Enguiry:
+  - image: https://pbs.twimg.com/media/EeseVfRX0AICpg6.jpg
+    text: |
+      هذه بعض المعلومات عن السودة:
+      - أجواء ممطرة ومليئة بالضباب
+      - ترتفع 3000 متر عن سطح البحر
+      - تبعد عن مدينة أبها 25 كم
+      - يوجد بها عربات تلفريك
+      - غابات كثيقة من اشجار العرعر
+      - يوجد بها سوق شعبي للاسر المنتجة
+      - https://goo.gl/maps/oB4M6DTXQFDSYDdV6
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+actions: []
+forms: {}
+e2e_actions: []

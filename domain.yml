@@ -1,0 +1,564 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- Park_Enquiry:
+    use_entities: true
+- General_Enquiry:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- Dam_Enquiry:
+    use_entities: true
+- Museum_Enquiry:
+    use_entities: true
+- Village_Enquiry:
+    use_entities: true
+- Garden_Enquiry:
+    use_entities: true
+- Soudah_Enquiry:
+    use_entities: true
+- Sahab_Enquiry:
+    use_entities: true
+- Sultan_Enquiry:
+    use_entities: true
+- Habalah_Enquiry:
+    use_entities: true
+- Faraa_Enquiry:
+    use_entities: true
+- Dalaghan_Enquiry:
+    use_entities: true
+- Airport_Enquiry:
+    use_entities: true
+- Mashhad_Enquiry:
+    use_entities: true
+- Khayyal_Enquiry:
+    use_entities: true
+- Sadd_Enquiry:
+    use_entities: true
+- Andalus_Enquiry:
+    use_entities: true
+- Rijal_Enquiry:
+    use_entities: true
+- Tabab_Enquiry:
+    use_entities: true
+- Asabla_Enquiry:
+    use_entities: true
+- BinHamsan_Enquiry:
+    use_entities: true
+- ARM_Enquiry:
+    use_entities: true
+- Raqdi_Enquiry:
+    use_entities: true
+- Qazaa_Enquiry:
+    use_entities: true
+- Jahal_Enquiry:
+    use_entities: true
+- Orsh_Enquiry:
+    use_entities: true
+- AlYahya_Enquiry:
+    use_entities: true
+- Sabtalaya_Enquiry:
+    use_entities: true
+- SaddAbha_Enquiry:
+    use_entities: true
+- SaddEtwed_Enquiry:
+    use_entities: true
+- SaddDaboee_Enquiry:
+    use_entities: true
+- SaddTarjes_Enquiry:
+    use_entities: true
+- SaddTendaha_Enquiry:
+    use_entities: true
+- Alyahya_Enquiry:
+    use_entities: true
+- Restaurants_Enquiry:
+    use_entities: true
+- Rest_Enquiry:
+    use_entities: true
+- RestCoff_Enquiry:
+    use_entities: true
+- Coff_Enquiry:
+    use_entities: true
+- rest_type:
+    use_entities: true
+- rest_name:
+    use_entities: true
+- rest_name_inform:
+    use_entities: true
+entities:
+- rest_type
+- rest_name
+- cuisine
+slots:
+  rest_type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  rest_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  cuisine:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  ord_items:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: '-'
+    auto_fill: false
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: وعليكم السلام ورحمة الله وبركاته
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: في أمان الله
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_General_Enquiry:
+  - text: |
+      معك المرشد السياحي في عسير ويسعدني تزويدك ببعض المعلومات السياحية عن المنطقة
+
+      يوجد العديد من الوجهات السياحية في المنطقة
+      - منتزهات
+      - حدائق
+      - قرى تراثية
+      - متاحف
+      - سدود
+      - مطاعم سياحية
+
+      اي منها اللي تحب تعرف عنها؟
+  utter_Park_Enquiry:
+  - text: |
+      هذه قائمة بأشهر المتنزهات في المنطقة:
+      - متنزه السودة
+      - منتزه السحاب
+      - متنزه الأمير سلطان
+      - متنزه الحبله
+      - متنزه الفرعاء
+      - متنزه دلغان
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Garden_Enquiry:
+  - text: |
+      هذه قائمة بأشهر الحدائق:
+      - حديقة المطار
+      - حديقة المشهد
+      - حديقة أبو خيال
+      - حديقة السد
+      - حديقة الاندلس
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Village_Enquiry:
+  - text: |
+      هذه قائمة بأشهر القرى التراثية في المنطقة:
+      - قرية رجال المع
+      - قرية طبب
+      - قرية العسابلة (النماص)
+      - قرية بن حمسان التراثية
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Museum_Enquiry:
+  - text: |
+      هذه قائمة بأشهر المتاحف في المنطقة:
+      - متحف عسير الإقليمي
+      - متحف الراقدي
+      - متحف ال قزع التراثي
+      - متحف الجحل
+      - متحف العرش
+      - متحف اليحيى
+      - متحف سبت العلايا
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Dam_Enquiry:
+  - text: |
+      هذه قائمة بأشهر السدود في المنطقة:
+      - سد أبها
+      - سد عتود
+      - سد ضبوعي
+      - سد ترجس
+      - سد تندحة
+
+      حدد احدها إذا تحب اعطيك معلومات اكثر عنه
+  utter_Soudah_Enquiry:
+  - image: https://pbs.twimg.com/media/EeseVfRX0AICpg6.jpg
+    text: |
+      هذه بعض المعلومات عن السودة:
+      - أجواء ممطرة ومليئة بالضباب
+      - ترتفع 3000 متر عن سطح البحر
+      - تبعد عن مدينة أبها 25 كم
+      - يوجد بها عربات تلفريك
+      - غابات كثيقة من اشجار العرعر
+      - يوجد بها سوق شعبي للاسر المنتجة
+      - الموقع: https://goo.gl/maps/oB4M6DTXQFDSYDdV6
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Sahab_Enquiry:
+  - image: https://pbs.twimg.com/media/EeseVfRX0AICpg6.jpg
+    text: |
+      هذه بعض المعلومات عن منتزه السحاب:
+      - يقع علي جبل شاهق مرتفع
+      - يبعد عن مدينة أبها حوالي 15 كم
+      - محاط بالغيوم والضباب
+      - قريب من منتزه السوده
+      - https://goo.gl/maps/ekxJABBHpKEXtEum7
+
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Sultan_Enquiry:
+  - image: https://www.trfihi-parks.com/images/parks/a9kiWw_1538701438_VVV.jpg
+    text: |
+      هذه بعض المعلومات عن منتزه الأمير سلطان:
+      - من أجمل المتنزهات في المنطقة
+      - مجهز بكافة الخدمات التي يحتاجها مرتاديه
+      - مجاور لمنتزه الفرعاء
+      - مجاور أيضاً لمنتزه المسقي
+      - لا يكاد يفارقه الضباب
+      - الموقع: https://goo.gl/maps/dQN74xSEMqRPq1bp6
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Habalah_Enquiry:
+  - image: https://www.trfihi-parks.com/images/parks/aC79tB_1538698781_haaaaaaaa.jpg
+    text: |
+      هذه بعض المعلومات عن منتزه الحبلة:
+      - يوجد بها عربات تلفريك
+      - يمكنك التخييم فيه
+      - يوجد به العديد من المطاعم والمقاهي
+      - https://goo.gl/maps/1RsLXfVZTZicYo5f8
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Faraa_Enquiry:
+  - image: https://www.trfihi-parks.com/images/parks/x9iTgw_1538629321_ffff.jpg
+    text: |
+      هذه بعض المعلومات عن منتزه الفرعاء:
+      - أكبر منتزه عائلي بمنطقة عسير
+      - يقع وسط الغابات والمدرجات الزراعية
+      - يقع بالقرب منتزه الأمير سلطان
+      - يقع بالقرب منتزه دلغان
+      - يتميز بأرضه المنبسطة المعشبة وأشجاره الكثيرة والمنتشرة في أرجائه
+      - منتزه مميز جداً للعائلات الكبيرة
+      - https://goo.gl/maps/hrHuMPfub27Cgemv7
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Dalaghan_Enquiry:
+  - image: https://www.trfihi-parks.com/images/parks/xoGvt6_1538699944_d.jpg
+    text: |
+      هذه بعض المعلومات عن منتزه دلغان:
+      - يعتبر من أجمل منتزهات منطقة عسير
+      - يتميز بأشجاره الكثيفة
+      - يبعد عن مدينة أبها 26 كم
+      - يقع بالقرب من منتزة الأمير سلطان
+      - يقع بالقرب من منتزه الفرعاء
+      - للعائلات فقط
+      - الموقع: https://goo.gl/maps/HyQwDWwEGqmB7gPJ6
+
+      بإمكانك تحديد منتزه او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Airport_Enquiry:
+  - image: https://www.alwatan.com.sa/uploads/images/2019/06/15/330721.jpeg
+    text: |
+      هذه بعض المعلومات عن حديقة المطار:
+      - تزيد مساحتها عن 125.000 متر مربع
+      - من أبرز عناصرها مجرى مائي يصل طوله إلى 260 مترا
+      - يقع على مسافة قريبة من مطار أبها
+      - يعتلي المجرى المائي حسور خشبية
+      - يوجد بها كل ما يحتاجة المتنزه من مطاعم وكافيهات وخدمات عامة
+      - الموقع: https://goo.gl/maps/efNrLuUpDQrMPMjKA
+
+      بإمكانك تحديد حديقة او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Mashhad_Enquiry:
+  - image: https://i.ytimg.com/vi/wZDeMOhJU6Q/maxresdefault.jpg
+    text: |
+      هذه بعض المعلومات عن حديقة المشهد:
+      - من أبرز الحدائق في مدينة أبها
+      - جميع الزوار يستمتعون بقضاء تجربة مميزة
+      - يحتوي العديد من المرافق الرياضية
+      - تضم سوقاً للأسر المنتجة
+      - الموقع: https://goo.gl/maps/NNchASFTDU8CNStq8
+
+      بإمكانك تحديد حديقة او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Khayyal_Enquiry:
+  - image: https://www.travellwd.com/wp-content/uploads/2021/01/abu-khayal.jpg
+    text: |
+      هذه بعض المعلومات عن حديقة أبو خيال:
+      - تمتاز بإطلالتها الرائعة والجميلة على مدينة أبها
+      - تقع على الحزام الدائري في مدينة أبها
+      - ترتبط مع الجبل الأخضر بالعربات المعلفة
+      - تحتوي على مطعم والذي يعد أحد المعالم المميزة في المدينة 
+      - الموقع: https://goo.gl/maps/KNkDH6SydAksxs7C8
+
+      بإمكانك تحديد حديقة او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Sadd_Enquiry:
+  - image: https://www.almowaten.net/wp-content/uploads/2018/05/9358873E-CD49-415F-B2E3-AB61B5E73EBD-799x534.jpeg
+    text: |
+      هذه بعض المعلومات عن حديقة السد:
+      - تقع في مدينة أبها على ضفاف بحيرة السد
+      - تضم مناطق وملاعب مخصصة للأطفال
+      - يمكنك من هذه الحديقة ركوب التلفريك نحو منطقة الجبل الأخضر
+      - الموقع: https://goo.gl/maps/DAMA9fLhTAckZn11A
+
+      بإمكانك تحديد حديقة او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Andalus_Enquiry:
+  - image: https://www.omallqura.com/wp-content/uploads/2019/10/7974151355041838.jpg
+    text: |
+      هذه بعض المعلومات عن حديقة الأندلس:
+      - من اجمل وأشهر الحدائق في أبها
+      - تمتاز بالمساحات الخضراء والجو الهادىء
+      - تضم مساحات مخصصة لممارسة الرياضة ومسارات للمشي
+      - تحوي بداخلها منطقعة ألعاب للأطفال
+      - الموقع: https://goo.gl/maps/7dsbNqT7GiivkfbRA
+
+      بإمكانك تحديد حديقة او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Rijal_Enquiry:
+  - image: "https://www.hiamag.com/sites/default/files/styles/ph2_960_600/public/article/17/05/2020/9329831-69282820.jpg\nhttps://www.abwab.eu/wp-content/uploads/2017/12/%D8%B1%D8%AC%D8%A7%D9%84-%D8%A3%D9%84%D9%85%D8%B9.jpg"
+    text: |
+      هذه بعض المعلومات عن قرية رجال ألمع التراثية:
+      - تحفة معمارية وسط الجبال عمرها أكثر من 350 عاماً
+      - تتميز ببنائها الهندسي الفريد
+      - تقع على بعد 45 كيلومتراً من مدينة أبها
+      - مرشحة للتسجيل ضمن قائمة التراث العالمي لليونيسكو
+      - تضم متحفاً يحتضن إرث من الصور والأعمال الفنية والتحف الأثرية الفريدة
+      - الموقع: https://goo.gl/maps/E3uVUSx3GnEbrZq27
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Tabab_Enquiry:
+  - image: https://pbs.twimg.com/media/Eym9hZ-XEAMQFhO.jpg
+    text: |
+      هذه بعض المعلومات عن قرية طبب التراثية:
+      - تضم عدة مواقع تاريخية وتراثية هامة
+      - تبعد عن مدينة أبها حوالي 25 كم
+      - تتميز بالنمط العمراني القديم
+      - مبانيها مكونة من الحجر والطين ومسقوفة بسواري العرعر
+      - قديماً كانت العاصمة السياسية والثقافية والافتصادية للمنطقة
+      - يوجد بها سد ضبوعي
+      - الموقع: https://goo.gl/maps/7i3EKfXjVpvPorhu6
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Asabla_Enquiry:
+  - image: https://cdn.al-ain.com/lg/images/2020/7/19/143-164459-10-best-places-namas-switzerland-arabia-7.jpeg
+    text: |
+      هذه بعض المعلومات عن قرى العسابلة التراثية:
+      - تقع ضمن محافظة النماص التميزة بالغطاء النباتي والطقس الجميل
+      - بها العديد من القصور والبيوت الأثرية
+      - تصنف بأنها احدى المدن العربية الاكثر ارتفاعاً عن سطح البحر
+      - تحكي قصورها عن قبائل وأنساب شهيرة
+      - الموقع: https://goo.gl/maps/SNuRJLmQjeVVjWAP6
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_BinHamsan_Enquiry:
+  - image: https://i0.wp.com/www.faifaonline.net/portal/wp-content/uploads/2015/03/IMG-20150324-WA0107.jpg?fit=720%2C1280&ssl=1
+    text: |
+      هذه بعض المعلومات عن قرية بن حمسان التراثية:
+      - تقع في مدينة خميس مشيط
+      - ذاكرة حيّة لعراقة موروث عسير في السعودية
+      - تضم قرية بن حمسان التراثية قصراً حجرياً يتوسطها
+      - تضم أيضاً المتحف الذي يشتمل على جميع القطع الأثرية المعروفة في عسير
+      - يوجد في المتحف ركن خاص بالمرأة وأدوات زينتها وحليها
+      - يوجد ركن آخر خاص بالرجل يعرض أسلحته وملابسه
+      - الموقع: https://goo.gl/maps/NxjU7ktM4YNsJPJT7
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_ARM_Enquiry:
+  - image: https://www.sayidaty.net/sites/default/files/styles/800x510/public/2019/12/31/6248901-22809507.jpg
+    text: |
+      هذه بعض المعلومات عن متحف عسير الاقليمي:
+      - يقع في وسط مدينة أبها
+      - أول متحف إقليمي ذات طابع رسمي
+      - يجمع مقتنيات أثرية قامت سبعة متاحف إقليمية فردية بجمعها عبر العقود
+      - يضم قاعة التاريخ الاسلامي
+      - يضم قاعة ما قبل الاسلام
+      - يضم قاعة التاريخ المعاصر
+      - الموقع: https://goo.gl/maps/caDB6AZaBxzBCMqv8
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Raqdi_Enquiry:
+  - image: https://pbs.twimg.com/media/CiMIp_4WMAIAUyk.jpg
+    text: |
+      هذه بعض المعلومات عن متحف الراقدي:
+      - يقع في مدينة أبها
+      - لعشاق التاريخ ومحبي المقتنيات التاريخية القديمة
+      - يتكون هذا المتحف من تسعة أقسام متنوعة
+      - يضم المتحف المجلس العسيري 
+      - يوجد قسم بمطبخ عسيري قديم يضم فخار وطاولات طعام قديمة
+      - يوجد أيضًا قسم آخر للعملات المعدنية القديمة والصحف والمجلات
+      - يضم قاعة التاريخ المعاصر
+      - الموقع: https://goo.gl/maps/w8ancrTgw8UAQXwM7
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Qazaa_Enquiry:
+  - image: https://janoubia.com/wp-content/uploads/2019/11/Mathaf-Al-Torathy-Kariat-All-Kaza3.jpg
+    text: |
+      هذه بعض المعلومات عن متحف آل قزع التراثي:
+      - يقع في قرية آل قزع
+      - يبعد 40 كم عن مدينة أبها
+      - يعتبر من متاحف أبها حديثة النشأة
+      - أنشئ عام 2007 ميلادي
+      - يضم نحو 2500 قطعة أثرية
+      - يضم سوق للاكلات الشعبية باشراف الاسر المنتجة 
+      - الموقع: https://goo.gl/maps/CYreDhkNt4vzHqzb9
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Jahal_Enquiry:
+  - image: https://www.alriyadh.com/media/thumb/3d/c8/1000_a4bb1b605f.png
+    text: |
+      هذه بعض المعلومات عن متحف الجحل التراثي:
+      - تأسس متحف الجحل الأثري عام 1397هـ
+      - ويقع في باحة ربيعة ورفيدة على طريق السودة بمنطقة عسير
+      - يضم أكثر من 14 ألف قطعة أثرية قديمة
+      - يضم 23 جناحاً غنية بتراث المملكة
+      - يحتوي اكثر من 48 بيت ضيافة للاسر المنتجة
+      - الموقع: https://goo.gl/maps/gmZQAoSg9V6aDbv1A
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Orsh_Enquiry:
+  - image: https://i.ytimg.com/vi/c6y3orYrsCw/hqdefault.jpg
+    text: |
+      هذه بعض المعلومات عن متحف العرش التراثي:
+      - يقع المتحف في محافظة النماص
+      - عبارة عن مبنى كبير من طابقين مبني بالحجر 
+      - على طراز البيوت التراثية لمنطقة عسير القديمة
+      - يحتوي على حوالي 1000 قطعة تراثية
+      - يشتمل على غرفة تخزين الحبوب
+      - الموقع: https://goo.gl/maps/oJKnJwySALfUHgGz9
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_AlYahya_Enquiry:
+  - image: https://vid.alarabiya.net/images/2017/10/11/ac182f40-ee6d-4fec-9d5d-ace4ddea35a1/ac182f40-ee6d-4fec-9d5d-ace4ddea35a1_16x9_1200x676.jpg?width=1138
+    text: |
+      هذه بعض المعلومات عن متحف اليحيى التراثي:
+      - يقع المتحف في محافظة النماص
+      - أنشأ المتخف عام 1395 هـ
+      - يحتوي مقتنيات من التراث الإسلامي منذ العهد النبوي الشريف 
+      - يضم ما يقرب من 8000 قطعة أثرية
+      - يوجد به 1700 قطعة من العملة الورقية والمعدنية النادرة وهي من العهد الأموي والعباسي والدولة السعودية الأولى
+      - الموقع: https://goo.gl/maps/wSFku4MvKKn89jiY8
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_Sabtalaya_Enquiry:
+  - image: https://www.ri7laty.com/library/destination/107/15642352321559412044.jpg
+    text: |
+      هذه بعض المعلومات عن متحف سبت العلاية التراثي:
+      - يقع في مدينة سبت العلاية
+      - أسسه علي محمد عبدالله القرني
+      - يضم ما يقرب من 600 قطعة أثرية
+      - يعتبر من المتاحف المتكاملة من حيث المبنى والمحتويات 
+      - يعتبر من أبر المتاحف في سبت العلاية
+      - الموقع: https://goo.gl/maps/gnqV1fPFMEV5UagS8
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_SaddAbha_Enquiry:
+  - image: http://aathaar.net/public/storage//avatars/94546.jpg
+    text: |
+      هذه بعض المعلومات عن سد أبها:
+      - أقيم قبل أكثر من 35 سنة
+      - يعطي الزائر انطباعا بأنه يشاهد بحيرة جميلة وجذابة
+      - يوجد على أطراف البحيرة مكان للجلسات العائلية والأفراد
+      - يحتجز سد أبها أكثر من 13 مليون متر مكعب من المياه 
+      - الموقع: https://goo.gl/maps/Ta82EKR3yc7H7VBy8
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_SaddEtwed_Enquiry:
+  - image: https://pbs.twimg.com/media/EIXo3KzXYAAuxDh.jpg
+    text: |
+      هذه بعض المعلومات عن سد عتود:
+      - يقع في مدينة خميس مشيط
+      - إنشء عام 1402هـ - 1982م
+      - يمتد عن طريق وادي عتود لمسافة طويلة حتى يتصل بوادي بيشه
+      - تحيط به العديد من المزارع
+      - يوجد حوله العديد من نبات التين الشوكي أو البرشوم بكثافة 
+      - الموقع: https://goo.gl/maps/ssvGCGsKBuypuYfLA
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_SaddDaboee_Enquiry:
+  - image: https://assets.almowaten.net/wp-content/uploads/IMG-20170513-WA0148-1052x526.jpg
+    text: |
+      هذه بعض المعلومات عن سد ضبوعي:
+      - يسمى سد ضبوعي أو سد طبب
+      - افتتح في عام 1403هـ
+      - يقع في مركز طبب شمال غرب مدينة أبها
+      - يبعد عن مدينة أبها ما يقرب 20 كم
+      - تعتبر بحيرة السد متنفساً للزوار حيث يتميز بجمال المنظر وبرودة الجو
+      - الموقع: https://goo.gl/maps/3QEqAbVqprNKtEY16
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_SaddTarjes_Enquiry:
+  - image: https://i1.wp.com/www.aldalel.info/wp-content/uploads/2019/01/9784987847874444.jpg?fit=593%2C423&ssl=1
+    text: |
+      هذه بعض المعلومات عن سد ترجس:
+      - يقع في محافظة النماص
+      - افتتح في عام 1434هـ
+      - سعته التخزينية قرابة 10 مليون متر مكعب
+      - يعتبر أكبر بحيرة مياه شرب في المملكة
+      - يعتبر امتداد لوادي ترج ذو الطبيعة الخلابة
+      - الموقع: https://goo.gl/maps/YNt74RQq32JNSJkUA
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_SaddTendaha_Enquiry:
+  - image: https://pbs.twimg.com/media/DlVQ0l_XcAArvjn.jpg
+    text: |
+      هذه بعض المعلومات عن سد تندحة:
+      - بستان عسير المثمر
+      - يقع شرق محافظة خميس مشيط 20 كم
+      - يمتاز وادي تندحة بجمال طبيعته وخضرة أرضه
+      - تتنوع فيه معطيات الجمال الطبيعي
+      - قبلة سياحية يرتادها السياح من المناطق المجاورة
+      - تقع على ضفتيه العديد من المزارع في المنطقة الجنوبية
+      - الموقع: https://goo.gl/maps/Hx2AYHjEc1RDe3i97
+
+      بإمكانك تحديد موقع او وجهة أخرى كي اعطيك معلومات عنها
+  utter_RestCoff_Enquiry:
+  - buttons:
+    - payload: مطعم
+      title: مطعم
+    - payload: مقهى
+      title: مقهى - كوفي شوب
+    text: هل ترغب في زيارة مطعم أم مقهى
+  utter_Rest_Enquiry:
+  - buttons:
+    - payload: مأكولات جنوبية
+      title: مأكولات جنوبية
+    - payload: مأكولات بحرية
+      title: مأكولات بحرية
+    - payload: مأكولات إيطالية
+      title: مأكولات إيطالية
+    - payload: مأكولات لبنانية
+      title: مأكولات لبنانية
+    - payload: مأكولات هندية
+      title: مأكولات هندية
+    - payload: بوفيه مفتوح
+      title: بوفيه مفتوح
+    text: بإمكانك اختيار احدها لحجز طاولة
+  utter_rest_table_booking:
+  - text: هل تريد احجز لك طاولة
+  utter_dont_book_table:
+  - text: على راحتك واي خدمة اخرى ، حاظرين
+actions:
+- action_rest
+- action_coff
+- action_book_table
+forms: {}
+e2e_actions: []
