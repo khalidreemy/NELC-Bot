@@ -160,7 +160,7 @@ class ActionBook(Action):
         
         if rest_name is not None:
             # dispatcher.utter_message(response="utter_Rest_Enquiry")
-            message = "أوكي تم الحجز في "
+            message = "لقد تم الحجز في "
             message += rest_name
             dispatcher.utter_message(text=message)
 
